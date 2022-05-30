@@ -22,6 +22,7 @@ function App() {
 
   useEffect(() => {
     runCircleOutline();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timerValue]);
 
   useEffect(() => {
