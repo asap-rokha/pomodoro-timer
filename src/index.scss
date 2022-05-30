@@ -1,0 +1,158 @@
+/* ---------------------------------
+SCSS variables
+--------------------------------- */
+$white: #ffffff;
+$pink: #ff4384;
+$pink-light: #ffedf7;
+$blue: #00a7ff;
+$blue-dark: #003164;
+
+$pink-bg: linear-gradient(
+  90deg,
+  #f78ca0 0%,
+  #f9748f 20.31%,
+  #fd868c 66.67%,
+  #fe9a8b 100%
+);
+$blue-bg: linear-gradient(180deg, #48c6ef 0%, #6f86d6 100%);
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.App {
+  width: 100%;
+  height: 100vh;
+  &.work {
+    background: $pink-bg;
+  }
+  &.shortBreak,
+  &.longBreak {
+    background: $blue-bg;
+  }
+}
+
+/* ---------------------------------
+Component Button
+--------------------------------- */
+
+.button {
+  height: 46px;
+  padding: 4px 36px;
+  border: 2px solid $white;
+  border-radius: 40px;
+  background: transparent;
+  color: $white;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ---------------------------------
+Component Timer
+--------------------------------- */
+.timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &__value {
+    font-size: 72px;
+    font-family: Arial;
+    color: $white;
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 16px;
+  }
+
+  &__outlines {
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+    border: 2px solid $white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .onBreakingMode & {
+      border-color: $blue;
+    }
+  }
+
+  &__moving-outline {
+    fill: none;
+    transform: rotate(-90deg);
+
+    circle {
+      stroke: $white;
+      stroke-width: 10;
+
+      .onBreakingMode & {
+        stroke: $blue;
+      }
+    }
+  }
+
+  svg {
+    position: absolute;
+  }
+}
+
+.settingsModal {
+  &__openBtn {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    cursor: pointer;
+    filter: invert(100%) sepia(0%) saturate(3085%) hue-rotate(92deg)
+      brightness(127%) contrast(105%);
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    min-width: 360px;
+  }
+  &__label {
+    color: $white;
+    margin-bottom: 4px;
+  }
+  &__input {
+    padding: 16px 8px;
+    border: none;
+    border-radius: 6px;
+    background: #ffffff82;
+    color: $white;
+    margin-bottom: 16px;
+    &::placeholder {
+      color: $white;
+      opacity: 1;
+    }
+    :-ms-input-placeholder {
+      color: $white;
+    }
+    ::-ms-input-placeholder {
+      color: $white;
+    }
+  }
+  &__btns {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
